@@ -1,0 +1,14 @@
+<?php
+
+$a = 1;
+while ($a < 17) {
+	if ($a % 2 == 0) {
+		print ("<div class='even'>" .$a . " is even <br> </div>");
+	}
+	else {
+		print ("<div class='odd'>" . $a . " is odd <br> </div>");
+	}
+	$a += 1;
+}
+
+
