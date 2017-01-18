@@ -1,0 +1,23 @@
+<script type="text/javascript">
+    var labels = document.querySelectorAll("label");
+    var i = labels.length;
+    while (i--) {
+        var label = labels.item(i);
+        var text = label.textContent;
+        label.parentNode.classList.contains("required") && (text += " *");
+        var nextElement = label.nextElementSibling;
+        // This is what I changed:
+        if (nextElement.tagName == 'SELECT') {
+            nextElement.options[0].text = text;
+        } else {
+            nextElement.setAttribute("placeholder", text);
+        }
+        label.parentNode.removeChild(label);
+    }
+    var elements = document.querySelectorAll('.errors, .no-label');
+    Array.prototype.forEach.call(elements, function(el, i) {
+        el.parentNode.removeChild(el);
+    });
+    $(".select option:selected").attr('disabled','disabled');
+    $(".select option:selected").attr('hidden','hidden');
+</script>
